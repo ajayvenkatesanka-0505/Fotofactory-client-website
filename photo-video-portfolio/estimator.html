@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Estimator | The Foto Factory</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        input[type="date"] { color-scheme: dark; }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-amber-500 selection:text-zinc-950">
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-300 flex items-center justify-center text-zinc-950 font-bold text-lg shadow-md shadow-amber-500/10 group-hover:scale-105 transition">
+                    FF
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-base font-bold tracking-wider uppercase leading-tight text-white">
+                        The Foto<span class="text-amber-500"> Factory</span>
+                    </span>
+                    <span class="text-[10px] text-zinc-400 tracking-widest uppercase">Cinematic Studio</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-400">
+                <a href="index.html" class="transition hover:text-zinc-100">Home</a>
+                <a href="gallery.html" class="transition hover:text-zinc-100">Portfolio</a>
+                <a href="about.html" class="transition hover:text-zinc-100">About</a>
+                <a href="estimator.html" class="text-zinc-100 font-semibold transition hover:text-zinc-100">Estimator</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="https://instagram.com/thefotofactoryofficial" target="_blank" class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-300 hover:scale-105 transition group" title="Instagram">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" style="color: #e1306c;">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="estimator.html" class="hidden md:inline-block px-5 py-2.5 rounded-full bg-amber-500 text-zinc-950 font-semibold text-sm transition hover:bg-amber-400">
+                    Book a Shoot
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-6 py-32">
+        <div class="text-center mb-16">
+            <span class="text-amber-500 font-semibold tracking-widest text-xs uppercase mb-2 block">Interactive Rate Card</span>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-4">Build Your Project Scope</h1>
+            <p class="text-zinc-400 max-w-lg mx-auto">Customize your requirements below to generate a live estimate and connect directly via WhatsApp.</p>
+        </div>
+
+        <form id="estimator-form" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 space-y-8">
+                <!-- 1. Service Type -->
+                <div class="bg-zinc-900/50 border border-zinc-800/80 p-6 rounded-2xl backdrop-blur-sm">
+                    <h2 class="text-lg font-semibold text-white mb-4">1. Primary Service</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <label class="cursor-pointer border border-zinc-800 rounded-xl p-4 flex flex-col justify-between hover:border-amber-500 transition has-[:checked]:border-amber-500 has-[:checked]:bg-amber-500/10">
+                            <input type="radio" name="service" value="Photography" data-price="25000" checked class="sr-only">
+                            <span class="font-semibold text-white">Photography</span>
+                            <span class="text-xs text-zinc-400 mt-2">Portraits, Editorial, Events</span>
+                        </label>
+                        <label class="cursor-pointer border border-zinc-800 rounded-xl p-4 flex flex-col justify-between hover:border-amber-500 transition has-[:checked]:border-amber-500 has-[:checked]:bg-amber-500/10">
+                            <input type="radio" name="service" value="Videography" data-price="45000" class="sr-only">
+                            <span class="font-semibold text-white">Videography</span>
+                            <span class="text-xs text-zinc-400 mt-2">Commercials, Reels, Films</span>
+                        </label>
+                        <label class="cursor-pointer border border-zinc-800 rounded-xl p-4 flex flex-col justify-between hover:border-amber-500 transition has-[:checked]:border-amber-500 has-[:checked]:bg-amber-500/10">
+                            <input type="radio" name="service" value="Hybrid" data-price="65000" class="sr-only">
+                            <span class="font-semibold text-white">Hybrid Package</span>
+                            <span class="text-xs text-zinc-400 mt-2">Both Photo & Video Coverage</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 2. Scale / Duration -->
+                <div class="bg-zinc-900/50 border border-zinc-800/80 p-6 rounded-2xl backdrop-blur-sm">
+                    <h2 class="text-lg font-semibold text-white mb-4">2. Project Scope & Scale</h2>
+                    <select id="scale" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 focus:outline-none focus:border-amber-500 transition">
+                        <option value="Half Day" data-multiplier="1">Half Day Shoot (up to 4 hours)</option>
+                        <option value="Full Day" data-multiplier="1.4" selected>Full Day Shoot (up to 8 hours)</option>
+                        <option value="Multi-Day" data-multiplier="2.2">Multi-Day Production / Campaign</option>
+                    </select>
+                </div>
+
+                <!-- 3. Service Location -->
+                <div class="bg-zinc-900/50 border border-zinc-800/80 p-6 rounded-2xl backdrop-blur-sm">
+                    <h2 class="text-lg font-semibold text-white mb-4">3. Event / Shoot Location</h2>
+                    <select id="location" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 focus:outline-none focus:border-amber-500 transition">
+                        <option value="Coimbatore">Coimbatore</option>
+                        <option value="Palghat" selected>Palghat</option>
+                        <option value="Pollachi">Pollachi</option>
+                        <option value="Tiruppur">Tiruppur</option>
+                        <option value="Salem">Salem</option>
+                        <option value="Trichy">Trichy</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Kerala (Other)">Kerala (Other)</option>
+                        <option value="Tamilnadu (Other)">Tamilnadu (Other)</option>
+                    </select>
+                </div>
+
+                <!-- 4. Client Details -->
+                <div class="bg-zinc-900/50 border border-zinc-800/80 p-6 rounded-2xl backdrop-blur-sm space-y-4">
+                    <h2 class="text-lg font-semibold text-white mb-2">4. Your Contact Details</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="text" id="clientName" placeholder="Your Name" required class="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 focus:outline-none focus:border-amber-500 transition">
+                        <input type="email" id="clientEmail" placeholder="Email Address" required class="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 focus:outline-none focus:border-amber-500 transition">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="tel" id="clientPhone" placeholder="Phone Number / WhatsApp" required class="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 focus:outline-none focus:border-amber-500 transition">
+                        <div class="relative">
+                            <input type="date" id="eventDate" required class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-100 focus:outline-none focus:border-amber-500 transition cursor-pointer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Live Summary & Action Card -->
+            <div class="lg:col-span-1">
+                <div class="sticky top-28 bg-zinc-900 border border-zinc-800 p-6 rounded-2xl flex flex-col justify-between space-y-6 shadow-2xl">
+                    <div>
+                        <span class="text-xs font-semibold tracking-wider text-zinc-400 uppercase block mb-1">Estimated Investment</span>
+                        <div id="price-output" class="text-2xl font-bold text-amber-400 mb-4">₹35,000 - ₹43,750</div>
+                        <div class="border-t border-zinc-800 pt-4 space-y-2 text-xs text-zinc-400 leading-relaxed">
+                            <p class="font-semibold text-zinc-300">📦 What's included in this estimate:</p>
+                            <p>✓ Professional gear & lighting setup</p>
+                            <p>✓ High-res color-graded digital proofs</p>
+                            <p>✓ Secure cloud gallery (7-day delivery)</p>
+                            <p class="text-[11px] text-amber-500/90 pt-1">*Travel or outstation arrangements discussed upon booking.</p>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="group relative w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-400 text-zinc-950 font-bold tracking-wide transition-all duration-300 hover:from-emerald-400 hover:to-emerald-300 hover:shadow-lg hover:shadow-emerald-500/20 active:scale-[0.98] cursor-pointer flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                        </svg>
+                        <span id="btn-text">Send via WhatsApp</span>
+                    </button>
+                    <p id="form-status" class="text-center text-xs hidden text-emerald-400 font-medium"></p>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-zinc-900 bg-zinc-950 py-12 text-center text-zinc-500 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 The Foto Factory. All rights reserved.</p>
+            <div class="flex items-center space-x-6">
+                <a href="https://instagram.com/thefotofactoryofficial" target="_blank" class="flex items-center gap-2 text-zinc-400 hover:text-white transition group">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" style="color: #e1306c;">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    <span>Instagram</span>
+                </a>
+                <a href="#" class="hover:text-zinc-200 transition"></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        const form = document.getElementById('estimator-form');
+        const priceOutput = document.getElementById('price-output');
+        const scaleSelect = document.getElementById('scale');
+        const serviceRadios = document.querySelectorAll('input[name="service"]');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const formStatus = document.getElementById('form-status');
+
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('eventDate').setAttribute('min', today);
+
+        function formatINR(num) {
+            return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(num);
+        }
+
+        function calculateEstimate() {
+            let basePrice = 25000;
+            serviceRadios.forEach(radio => { if (radio.checked) basePrice = parseFloat(radio.dataset.price); });
+            const selectedOption = scaleSelect.options[scaleSelect.selectedIndex];
+            const multiplier = parseFloat(selectedOption.dataset.multiplier);
+            const finalMin = Math.round(basePrice * multiplier);
+            const finalMax = Math.round(finalMin * 1.25);
+            priceOutput.textContent = `${formatINR(finalMin)} - ${formatINR(finalMax)}`;
+            return { min: finalMin, max: finalMax };
+        }
+
+        serviceRadios.forEach(radio => radio.addEventListener('change', calculateEstimate));
+        scaleSelect.addEventListener('change', calculateEstimate);
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            btnText.textContent = 'Opening WhatsApp...';
+            formStatus.textContent = 'Redirecting you to chat...';
+            formStatus.classList.remove('hidden');
+
+            const name = document.getElementById('clientName').value;
+            const email = document.getElementById('clientEmail').value;
+            const phone = document.getElementById('clientPhone').value;
+            const location = document.getElementById('location').value;
+            const date = document.getElementById('eventDate').value;
+            const selectedService = document.querySelector('input[name="service"]:checked').value;
+            const scale = scaleSelect.value;
+            const estimate = priceOutput.textContent;
+            
+            const myWhatsAppNumber = "9245175122"; 
+            const text = `Hi The Foto Factory, I'd like to book a shoot!%0a%0a*Name:* ${name}%0a*Phone:* ${phone}%0a*Email:* ${email}%0a*Location:* ${location}%0a*Service:* ${selectedService} (${scale})%0a*Date:* ${date}%0a*Estimated Budget:* ${estimate}`;
+
+            setTimeout(() => {
+                window.open(`https://wa.me/${myWhatsAppNumber}?text=${text}`, '_blank');
+                submitBtn.disabled-false;
+                submitBtn.disabled = false;
+                btnText.textContent = 'Send via WhatsApp';
+                formStatus.textContent = 'WhatsApp opened successfully!';
+            }, 800);
+        });
+
+        calculateEstimate();
+    </script>
+</body>
+</html>
